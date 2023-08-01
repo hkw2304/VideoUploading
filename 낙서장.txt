@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- node.js : 
-                    브라우저밖에서 javascript가 돌아가게 해줌 
+        node.js :  브라우저밖에서 javascript가 돌아가게 해줌 
                     node.js를 설치하면 터미널 창에서 javascript를 실행할 수 있다.
 
         npm : javascript 언어를 위한 패키지 매니저, 여러 패키지를 불러올 수 있다.
@@ -21,6 +12,11 @@
         babel : 최신 문법 코드를 사용할 수 있게해준다.
 
         nodemon : 파일이 수정되는걸 감시해주는 패키지, 수정되면 알아서 재시작해준다.
-    -->
-  </body>
-</html>
+
+
+
+        ===========================================
+        08-01 서버 node.js로 서버 구축
+        
+        1.src 폴더에 로직,코드 저장
+        파일들이 많아 져서 모든 코드나 로직들을 src폴더에다 저장
