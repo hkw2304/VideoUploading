@@ -24,9 +24,10 @@ app.get("/login", handleLogin);
 // listen(포트, 받을 함수)
 // port는 보통 높은 번호는 비어있다.
 
-// 둘 다 가능
 // 서버에서 작동하는거라서 application이 생성되고 만들어져야 한다.
-const handleListening = () =>
+const handleListening = () => {
   console.log(`Server listening on port http://localhost:${PORT}`);
+};
+
 app.listen(PORT, handleListening);
 // 서버가 만들어 졌고 4000번 port를 listening 하고 있다.

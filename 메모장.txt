@@ -1,0 +1,37 @@
+
+-깃허브 연동-
+1-1 : git init을 한다. = > 깃연동
+1-2 : git remote add origin "깃허브 레퍼지토리주소" => 원격 저장소 연동
+
+2.package.json 만들기(이름은 바르게 적기)
+    "직접 만들지는 않는다"
+    2-1 : npm init => package.json을 만들 수 있게 리스트 제공
+
+
+실행되는 것은 package.json의 main이나 scripts에 있는 파일이 실행된다.
+npm run "실행명"
+
+
+3.express 패키지 설치
+    3-1 : npm i express
+        설치된 것들은 NodeJS의 패키지이다
+        지금의 프로젝트를 하기 위해선 express패키지가 필요하다.
+
+        npm은 똑똑해서 다른 모듈을 지워도 package.json의 dependencies 안에있는 express를 보고 
+        안에 있는 모듈들을 알아서 설치해준다.
+        그래서 만약 누군가에게 코드를 줄경우 package.json만 납두고 -npm i-만 하면 다른 모듈들이 알아서 설치된다.
+        용량이 클 경우 아주 유용하다.
+
+    3-2 : .gitignore폴더를 만들어 node_modules를 깃에 올리지 않게 한다.
+
+4.babel 설치
+    babel : 작성한 javascrip코드가 최신이여도 문제없이 실행되게 해준다.
+    4-1 : NodeJS에서 사용가능한 babel 다운
+
+    dependencies(프로젝트를 위한), devDependencies(개발자를 위한) 차이는 없다. 명시적으로만 한다.
+    4-2 : configure file babel.config.json를 만든다 => touch babel.config.json or 우클릭으로 직접 만든다.
+    4-3 : babel을 설치 했기 때문에 scripts 수정(node -> babel-node) 
+
+5.nodemon 설치
+    nodemon : 새로고침 할 때마다 자동으로 실행 시켜준다.
+    5-1 : scripts수정(nodemon --exec 앞에 추가)
