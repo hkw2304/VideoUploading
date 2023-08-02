@@ -9,7 +9,7 @@
         dependencies : 프로젝트에 필요한 dependencies
         Devdependencies : 개발자를 위한 dependencies
 
-        babel : 최신 문법 코드를 사용할 수 있게해준다.
+        babel : 최신 문법 코드를 사용할 수 있게해준다.(최신 => 예전)
 
         nodemon : 파일이 수정되는걸 감시해주는 패키지, 수정되면 알아서 재시작해준다.
 
@@ -20,3 +20,17 @@
         
         1.src 폴더에 로직,코드 저장
         파일들이 많아 져서 모든 코드나 로직들을 src폴더에다 저장
+
+        08-02 middleware
+
+        middleware : request와 response 사이에 있는 중간소프트웨어
+        일반적으로 중간에 있는 함수가 해당하고 controller라 불린다(argument로 req, res,next 존재)
+        함수가 다른함수를 호출하는 것을 middleware라고 한다.(쉽게 말해 토스)
+        next는 어디든 존재 가능
+
+        app.use() : global middleware를 만들어준다.
+
+        middleware가 next()를 호출 안하면 다음 함수는 실행되지 않는다.
+
+        middleware의 여러정보가 기록되는 -morgan-을 설치한다.
+        
