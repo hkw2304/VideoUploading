@@ -1,8 +1,12 @@
         node.js :  브라우저밖에서 javascript가 돌아가게 해줌 
-                    node.js를 설치하면 터미널 창에서 javascript를 실행할 수 있다.
+                   node.js를 설치하면 터미널 창에서 javascript를 실행할 수 있다.
+                   스크립트언어는 특정 프로그램안에서만 작동하기 때문에 등장
+                   javascript 런타임이다
+                   런타임 : 특정 언어로 만든 프로그램을 실행할 수 있는 환경
+                   javascript로 백엔드서버를 만들기위한 런타임 환경
 
         npm : javascript 언어를 위한 패키지 매니저, 여러 패키지를 불러올 수 있다.
-                    node.js와 같이 사용된다 node.js 설치하면서 같이 자동 설치됨
+              node.js와 같이 사용된다 node.js 설치하면서 같이 자동 설치됨
 
         json : 파일에 정보를 저장하는 방식을 유저가 설정, node.js를 위해 반드시 package.json 이라고 짓는다.
 
@@ -33,4 +37,15 @@
         middleware가 next()를 호출 안하면 다음 함수는 실행되지 않는다.
 
         middleware의 여러정보가 기록되는 -morgan-을 설치한다.
+
+        08-03 Router
+        
+        router : 컨트롤어와 URL관리를 쉽게 해준다.
+        server_4-1.js 파일 보면서 router만들고 따로 분리 해준다   
+        export 하는 이유 : 모든프로젝트는 분리된 모듈이여서 바깥에 공유하기 위해서는 반드시 해야한다.
+        default 하는 이유  :폴더 전체를 줄 필요가 없으니까 변수만 넘겨준다.(하나 밖에 안된다.)
+        
+        Router와Controller를 분리해준다.     
+        각각의 Controller를 export 해줘서 오브젝트{} 형식으로 import해준다.
+        :id : url에 변수를 넣어줘서 관리를 해준다      -> : <- : 파라미터 필수
         
