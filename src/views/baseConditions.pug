@@ -1,0 +1,26 @@
+doctype html
+//- h1=변수명을 하면 #{}을 안해도 변수를 받는다.
+//- 조건문 연습
+html(lang="ko")
+    head
+        title #{pageTitle} | Youtube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+           
+    body
+        header
+            if fakeUser.loggedIn
+                small Hello#{fakeUser.username}
+            nav 
+                ul
+                    if fakeUser.loggedIn
+                        li
+                            a(href="/logout") Logout
+                    else                    
+                        li
+                            a(href="/login") Login
+            h1=pageTitle
+        main
+            block content
+            input(placeholder="please Your Text")
+            button send
+    include partials/footer.pug  

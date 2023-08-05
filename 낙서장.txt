@@ -25,6 +25,7 @@
         1.src 폴더에 로직,코드 저장
         파일들이 많아 져서 모든 코드나 로직들을 src폴더에다 저장
 
+
         08-02 middleware
 
         middleware : request와 response 사이에 있는 중간소프트웨어
@@ -38,6 +39,7 @@
 
         middleware의 여러정보가 기록되는 -morgan-을 설치한다.
 
+
         08-03 Router
         
         router : 컨트롤어와 URL관리를 쉽게 해준다.
@@ -49,3 +51,46 @@
         각각의 Controller를 export 해줘서 오브젝트{} 형식으로 import해준다.
         :id : url에 변수를 넣어줘서 관리를 해준다      -> : <- : 파라미터 필수
         
+
+        08-04 html 요소 추가하기
+
+        pug설치(npm i pug)
+        pug : 템플릿을 이용해서 뷰만드는것을 도와준다
+        express에게 뷰엔진으로 pug를 사용한다고 알려줘여한다.
+        app.set("view engine", "pug")
+        express가 cwd(현재 작업 디렉터리)에서 "views"라는 폴더를 찾아 퍼그를 실행한다. 그래서 폴더를 만들어준다.
+        express의 현재 작업 공간은 node.js를 실행하는 공간이다 그래서 주소를 변경해줘야 한다.
+        app.set("views", process.cwd() + "/src/views");
+        중복된 코드는 따로 폴더(partials)를 만들어 본문에 include partials/footer.pug 해준다.
+        여기서도 상속을 할 수 있다. 많이 중복되는 코드는 한 파일을 상속 시켜준다
+        한 기능만 다르게 하고 싶으면 block 설정을해서 content를 위한 공간을 마련해준다.
+
+        include, extends는 수정을 하지않냐 하냐에 따라 나뉜다
+
+        render() : 렌더링을 하면서 실행할 pug와 변수들을 넘겨줄 수 있다.
+
+
+        08-05 새로운 middleware MVP.css 설치, 조건,반복문, mixin연습
+        
+        css는 최종적으로 나중에 한다.
+        하지만 조금 예쁘게 보이기 위해 설치.
+        MVP.css 홈페이지가서 링크만 복사
+        MVP : html 태그에 몇 가지 기본 스타일을 입혀준다.
+        주소를 head안에 넣어준다.
+        조건문 연습
+        반복문 연습
+        1.pug문법으로 배열을 each 변수 in 배열 로 가져올 수 있고, 배열이 이었다면 else를 해서 예외처리 가능
+        html구조가 반복되면 mixin을 설정
+        
+
+        08-05 database
+        배열로 가짜 db를 만들어서 연습
+        params은 기본적인 내용(id, name)을 있으면 자동으로 알려준다.
+        절대경로 :  / 붙혀준다., 루트에서 시작
+        상대경로 : 그냥 주소만 붙혀준다. , 현재 주소에서 시작
+        form(method) : method는 폼의 정보를서버에 보내는 방식
+        action :데이터들을 url로 보낼수가 있다.
+        기본값 : GET
+        GET : 서버가 어떠한 정보를 가져와 조회할 때 사용하는 방식, 단순히 데이터만 받는 것이 목적
+              
+        POST : 데이터를 서버로 보내 추가, 수정하기 위해 사용하는 방식, back-end로 보낼 때 사용, 보통 form에서 사용
