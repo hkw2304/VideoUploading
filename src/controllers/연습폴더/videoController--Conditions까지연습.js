@@ -12,6 +12,7 @@ export const tranding = (req, res) => {
   // 그래서 pug를 사용
   // view를 랜더링한다
   // 렌더링 하면서 pug와 변수들을 보낼 수 있다
+  // render("사용할 템플릿", "보낼 변수")
   res.render("home", { pageTitle: "Home", cook: "potato", fakeUser: fakeUser });
 };
 export const see = (req, res) => {
