@@ -1,5 +1,5 @@
 import Video from "../models/Video";
-// find({형식}, 실행함수) :오래된 형식
+// find({형식}, 실행함수) :db에서 데이터를 찾는다.
 // 업데이트되서 영상이랑 다름
 // {} : 비어 있다면 모든 형식을 찾는것
 // Video.find()
@@ -18,7 +18,7 @@ export const home = async (req, res) => {
   //   return res.render("server-error", { error });
   // }
   const videos = await Video.find({});
-  // console.log(videos);
+  console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
 export const watch = (req, res) => {
@@ -80,6 +80,5 @@ export const postUpload = async (req, res) => {
       rating: 0,
     },
   });
-
   return res.redirect("/");
 };

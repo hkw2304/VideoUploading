@@ -109,5 +109,5 @@
         3.mongodbsh를 실행해서 url을 가져온다.
         
         db에서 자료를 가져오는 방식은 callback과 promise 방식이 있지만 현재 버전 업데이트로인해 promoise방식만 사용
-      
+        db.videos.find() : mongodb에서 데이터보기
             
