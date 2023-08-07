@@ -96,3 +96,18 @@
         POST : 데이터를 서버로 보내 추가, 수정하기 위해 사용하는 방식, back-end로 보낼 때 사용, 보통 form에서 사용
                그냥 무엇을 넘겨준다는 느낌
         항상 뭐든지 get을 하고 post를 해줘야 한다.
+
+
+        08-07 mongoDB
+        
+        1. mongodb설치 
+        1-1 : chocolatey 설치하여 mongoDB 설치
+        2. mongoose설치
+            mongoose : node.js와 mongodb를 연결해준다.
+            npm i mongoose
+
+        3.mongodbsh를 실행해서 url을 가져온다.
+        
+        db에서 자료를 가져오는 방식은 callback과 promise 방식이 있지만 현재 버전 업데이트로인해 promoise방식만 사용
+      
+            

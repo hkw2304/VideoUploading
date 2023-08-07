@@ -1,6 +1,8 @@
 extends base.pug
-
+//- 모든 input 꼭 name값을 주자
 block content 
     form(method="POST")
         input(placeholder="Title", required, type="text",name="title")
+        input(placeholder="Description", required, type="text",name="description")
+        input(placeholder="Hashtags, separated by comma.", required, type="text",name="hashtags")
         input(type="submit", value="upload Video")
