@@ -1,11 +1,9 @@
 //- partials랑 매우 유사, mixin은 include하고 +로 가져와준다.
 //- pug문법인 텍스트랑 변수를 같이 사용하는 것(#{})은 attribute에는 사용 불가능
-mixin video(video)
+mixin video(videos)
     div
         h4
-            a(href=`/videos/${video.id}`) #{video.title} 
-        ul 
-            li #{video.rating} / 5
-            li #{video.comments} comments.
-            li Posted #{video.createdAt}.
-            li #{video.views} views.
+            a(href=`/videos/${videos.id}`) #{videos.title} 
+        p=videos.description
+        small=videos.createdAt
+        hr

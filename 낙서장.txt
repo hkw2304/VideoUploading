@@ -110,4 +110,15 @@
         
         db에서 자료를 가져오는 방식은 callback과 promise 방식이 있지만 현재 버전 업데이트로인해 promoise방식만 사용
         db.videos.find() : mongodb에서 데이터보기
+
+
+        08-08
+
+        해당 id 찾는법
+        1. await videos.findById(id);   <--- 난 이게 좋다
+        2. await Video.exit({_id: id})
+        
+        업데이트 쉽게 하기
+
+        Video.findByIdAndUpate(id, {업데이트 내용})   <--- 무조건 이거 써라
             
