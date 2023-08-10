@@ -1,4 +1,4 @@
-// import { query } from "express";
+import { query } from "express";
 import Video from "../models/Video";
 
 export const home = async (req, res) => {
@@ -36,16 +36,25 @@ export const postEdit = async (req, res) => {
     await Video.findByIdAndUpdate(id, {
       title,
       description,
+      // hashtags: formatHashtags(hashtags),
       hashtags: Video.formatHashtags(hashtags),
+      // 아예 함수로 만들어서 사용
+      // haghtags: hashtags
+      //   .split(",")
+      //   .map((word) => (word.startsWith("#") ? word : `#${word}`)),
     });
     return res.redirect(`/videos/${id}`);
   }
   return res.render("404", { pageTitle: "Video not found." });
 };
 export const search = async (req, res) => {
+  // 주소를 넘겨줘야 한다.
+  // id : params , input내용 : body, query:내용의 내용???
   const { keyword } = req.query;
+  // 처음 search는 아무것도 없는 상태이다. 검색을 해야 데이터가 들어온다.
   let videos = [];
   if (keyword) {
+    // 정규식으로 정한거임
     videos = await Video.find({
       title: {
         $regex: new RegExp(`^${keyword}`),

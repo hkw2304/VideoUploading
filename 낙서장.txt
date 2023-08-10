@@ -121,4 +121,38 @@
         업데이트 쉽게 하기
 
         Video.findByIdAndUpate(id, {업데이트 내용})   <--- 무조건 이거 써라
+
+
+        08-09 해시테그middleware, 중복함수 정의, search만들기
+
+        db용 middleware 만들기
+        db가 save하기전에 실행할 미들웨어, this로 접근가능
+        해시테그에 관한 미들웨어 생성
+        아니면 해시테그  관한 함수를 만들어서 export하고 import해서 함수를 사용한다.
+        여러 방법들이 있다.편한거 써라
+
+        db명령어
+            2. 내가 가진 db 보기
+            > show dbs
+
+            3. 현재 사용 중인 db 확인
+            > db
+
+            4. 사용할 db 선택하기
+            > use dbName
+            (현재 수업에서는 `use wetube`)
+
+            5. db 컬렉션 보기
+            > show collections
+
+            6. db 컬렉션 안에 documents 보기
+            > db.collectionName.find()
+            (현재 수업에서는 `db.videos.find()`)
+
+            7. db 컬렉션 안에 documents 내용 모두 제거하기
+            > db.collectionName.remove({})
+
+         다시 말하는데 render(사용할 퍼그, 넘겨줄 변수)
+
+
             
