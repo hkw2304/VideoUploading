@@ -78,6 +78,16 @@ export const postLogin = async (req, res) => {
       .status(400)
       .render("login", { pageTitle, errorMessage: "Wrong pwd!!!" });
   }
+  // 로그인하면 세션을 준다.
+  // userd대한 정보를 저장한다.
+  // 이제 이정보를 pug로 줘야함
+  // locals이란 것은 express가 pug에서 그냥 사용할 수 있게 해준다.
+  // 즉 pug에서 locals object에 그냥 접근 가능(변수명으로 그냥 접근 가능)
+
+  // session 초기화부분
+  req.session.loggedIn = true;
+  req.session.user = user;
+
   return res.redirect("/");
 };
 export const logout = (req, res) => {
