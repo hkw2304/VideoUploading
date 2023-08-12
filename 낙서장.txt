@@ -182,6 +182,28 @@
 
             비공개를 원하는 코드를 위해서 .env파일생성
 
+            dotenv설치
+
+
+            08-12 github 로그인
+            
+            로그인 셋팅
+            1. https://github.com/settings/apps/ 
+            2. OAuth Apps
+
+
+            1.사용자를 github로 보낸다
+            https://github.com/login/oauth/authorize?clien_id=셋팅한 client_id   <-여기로
+            잡기술
+            &allow_signup=false : 기존 github회원만 사용가능
+            &scope : 유저가 원하는 정보를 요청한다.
+            예) scope:user:email 등등
+                user:email delete_repo 등등 요청이 여러개면 공백으로 구분
+
+            이후로는 어렵다 외우자
+
+
+
 
 
             
