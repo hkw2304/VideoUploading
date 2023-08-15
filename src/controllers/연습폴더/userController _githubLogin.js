@@ -92,6 +92,7 @@ export const postLogin = async (req, res) => {
 // 유저를 github 로그인사이트로 보내주는 주소 작업 중
 export const startGithubLogin = (req, res) => {
   const baseUrl = `https://github.com/login/oauth/authorize`;
+  // 파라미터 설정 및 scope 설정
   const config = {
     client_id: process.env.GH_CLIENT,
     allow_signup: false,
@@ -100,9 +101,10 @@ export const startGithubLogin = (req, res) => {
   // new URLSearchParams().toString() : 객체안의 값들을 주소처럼 인코딩해준다.
   const params = new URLSearchParams(config).toString();
   const finalUrl = `${baseUrl}?${params}`;
+  // 리다이렉트해서 인증 작업한다.
   return res.redirect(finalUrl);
 };
-// 내가 설정한 github사이트로 이동시켜준다.
+// 내가 설정한 github콜백사이트로 이동시켜준다.
 export const finishGithubLogin = async (req, res) => {
   const baseUrl = "https://github.com/login/oauth/access_token";
   const config = {
@@ -113,7 +115,7 @@ export const finishGithubLogin = async (req, res) => {
   const params = new URLSearchParams(config).toString();
   const finalUrl = `${baseUrl}?${params}`;
   // fetch는 브라우저만 돌아가고 node.js에선 작동안해서 fetch설치해야함 버전은 2.6.1
-
+  // fetch를 통해 백엔드로 부터 json형태의 데이터를받는 과정이라 형식만 보고 이해
   const tokenRequest = await (
     await fetch(finalUrl, {
       method: "POST",
@@ -122,7 +124,8 @@ export const finishGithubLogin = async (req, res) => {
       },
     })
   ).json();
-  // 토큰으로 접근한다.
+  // access_token을 얻고 나서 github API를 통해 user의 정보를 얻는다.
+  // 정보를 가져오는 방법은 형식을 보고 이해
   if ("access_token" in tokenRequest) {
     const { access_token } = tokenRequest;
     const apiUrl = "https://api.github.com";
@@ -134,6 +137,8 @@ export const finishGithubLogin = async (req, res) => {
       })
     ).json();
     console.log(userData);
+
+    // email의 값이 null이라서 얻는 과정
     const emailData = await (
       await fetch(`${apiUrl}/user/emails`, {
         headers: {
@@ -152,6 +157,7 @@ export const finishGithubLogin = async (req, res) => {
     // console.log(test);
     let user = await User.findOne({ email: emailObject.email });
     // console.log(existingUser);
+    // 계정이 없다면 github기반으로 계정 생성해줌
     if (!user) {
       user = await User.create({
         avatarUrl: userData.avatar_url,
@@ -159,6 +165,7 @@ export const finishGithubLogin = async (req, res) => {
         username: userData.login,
         email: emailObject.email,
         password: "",
+        // github로 로그인 했는지 판별
         socialOnly: true,
         location: userData.location,
       });

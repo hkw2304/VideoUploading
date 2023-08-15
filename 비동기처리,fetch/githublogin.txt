@@ -1,0 +1,27 @@
+1.github application 생성
+  홈페이지 setting -> Oauth 생성
+
+2.access_token 얻기
+  사용자들을 github신원을 요청하기 위해 redirect된다.
+  그래서 사용자들을 github로 redirect해야됨(https://github.com/login/oauth/authorize)
+    신원확인을 위해서는 몇개의 파라미터들을 줘야한다.
+   여러가지가 있다.
+    https://github.com/login/oauth?authorize?client_id=???&allow_sigup=false...등등
+     allow_signup : 계정생성기능
+     scope : 유저에게서 원하는 정보 구분은 공백으로 해준다., 여기에선 read: user user:email
+   github에서 난 이런 정보들을 원한다, 그래서 넘겨줘서 나에게 접근을 할 수 있는 token을 준다.
+   Autorisizing을 하면 github(나)가 설정한 콜백 url로 redirect시켜준다. 그리고 어떠한 코드(token)를 넘겨준다.
+
+     코드를 access가능한 tokken으로 받아줘야한다.
+     파라미터(client_id, client_secret, code)와 함께 POST요청을 해야한다.
+   https://github.com/login/oauth/access_token에 똑깥이 파라미터들을 붙혀준다   <=== 콜백URL이랑 다름
+     POST request만 하는거라 redirect는 하지않고 fetch를해서 넘겨준다.
+   fetch를하면 Json형태의 access_token을 얻을 수 있다.
+
+3.access_token을 가지고 github api에 접근
+  access_token을 가지고 user의 정보를 알 수 있다.
+  Json형태의 token을 변수에 저장에서 https://api.github.com/user로 fetch를 해준다.
+  email정보를 얻기위한 작업
+   https://api.github.com/user/emails    <--- email 정보들이 담겨있다.
+  email객체들에서 primary,verified가 true인 값을 찾는다.
+  있으면 로그인 시켜주고, 없으면 계정을 생성 해준다.
