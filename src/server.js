@@ -1,5 +1,3 @@
-// import : 외부의 어떤 파일을 가져오기위함
-
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
@@ -26,6 +24,8 @@ app.use(
   })
 );
 app.use(localsMiddleware);
+// 이미지 경로 인식을 위한 전역 설정
+app.use("/uploads", express.static("uploads"));
 app.use(morganMiddle);
 app.use(express.urlencoded({ extended: true }));
 app.use("/", rootRouter);
