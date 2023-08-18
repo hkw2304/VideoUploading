@@ -1,3 +1,4 @@
+// import { query } from "express";
 import User from "../models/User";
 import Video from "../models/Video";
 
@@ -7,12 +8,16 @@ export const home = async (req, res) => {
 };
 export const watch = async (req, res) => {
   const { id } = req.params;
+  // populate : 해당 객체의 포함된 모든 정보들을 얻을 수 있다.
   const videos = await Video.findById(id).populate("owner");
   console.log(videos);
+  // 영상 올린사람 작업 방법 1.
+  // const owner = await User.findById(videos.owner);
   if (videos) {
     return res.render("watch", {
       pageTitle: videos.title,
       videos,
+      // owner,
     });
   }
   return res.status(404).render("404", { pageTitle: "Video not found." });
@@ -69,6 +74,7 @@ export const search = async (req, res) => {
 };
 export const deleteVideo = async (req, res) => {
   const { id } = req.params;
+  // remove가 있지만 그냥 쓰지마
   const {
     user: { _id },
   } = req.session;
@@ -80,12 +86,15 @@ export const deleteVideo = async (req, res) => {
     return res.status(403).redirect("/");
   }
   await Video.findByIdAndDelete(id);
+  // console.log(id);
   return res.redirect("/");
 };
 export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
 };
 export const postUpload = async (req, res) => {
+  // const { file } = req.file;
+  // es6문법
   const {
     user: { _id },
   } = req.session;
@@ -97,6 +106,7 @@ export const postUpload = async (req, res) => {
       description,
       fileUrl,
       owner: _id,
+      // fileUrl: file.path,
       hashtags: Video.formatHashtags(hashtags),
     });
     const user = await User.findById(_id);

@@ -7,14 +7,15 @@ import {
   getUpload,
   postUpload,
 } from "../controllers/videoController";
-import { protectedMiddleware } from "../middlewares";
+import { protectedMiddleware, videoUpload } from "../middlewares";
 const videoRouter = express.Router();
 
+// multer는 반드시 업로드 하기전에 실행
 videoRouter
   .route("/upload")
   .get(getUpload)
   .all(protectedMiddleware)
-  .post(postUpload);
+  .post(videoUpload.single("video"), postUpload);
 videoRouter.get("/:id([0-9a-f]{24})", watch);
 videoRouter
   .route("/:id([0-9a-f]{24})/edit")

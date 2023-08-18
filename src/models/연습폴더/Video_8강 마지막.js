@@ -9,6 +9,9 @@ const videoSchema = new mongoose.Schema({
     views: { type: Number, default: 0, required: true },
     rating: { type: Number, default: 0, required: true },
   },
+  // ObjectId는 mongoose에서 제공하는 것
+  // User의 아이디를 준다는 것
+  // ref: "User" : populate를 하면 해당 객체의 모든 정보들을 얻을 수 있다.
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
 });
 videoSchema.static("formatHashtags", function (hashtags) {

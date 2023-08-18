@@ -1,4 +1,3 @@
-import { renderFile } from "pug";
 import multer from "multer";
 export const localsMiddleware = (req, res, next) => {
   // 세션내용을 locals에 넘겨준다.
@@ -30,4 +29,15 @@ export const publicOnlyMiddleware = (req, res, next) => {
 };
 
 // 사용자가 업로드한 파일을 upload란 곳에 저장 하라
-export const uploadFiles = multer({ dest: "uploads/" });
+export const avatarUpload = multer({
+  dest: "uploads/avatars",
+  limits: {
+    fileSize: 3000000,
+  },
+});
+export const videoUpload = multer({
+  dest: "uploads/videos",
+  limits: {
+    fileSize: 100000000,
+  },
+});

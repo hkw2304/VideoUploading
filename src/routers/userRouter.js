@@ -12,7 +12,7 @@ import {
 import {
   protectedMiddleware,
   publicOnlyMiddleware,
-  uploadFiles,
+  avatarUpload,
 } from "../middlewares";
 const userRouter = express.Router();
 
@@ -21,7 +21,7 @@ userRouter
   .all(protectedMiddleware)
   .get(getEdit)
   // multer는 post에 사용, 먼저 파일을 받고 파일정보를 post로 전달
-  .post(uploadFiles.single("avatar"), postEdit);
+  .post(avatarUpload.single("avatar"), postEdit);
 userRouter
   .route("/change-password")
   .all(protectedMiddleware)
@@ -30,5 +30,5 @@ userRouter
 userRouter.get("/logout", protectedMiddleware, logout);
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
-// userRouter.get("/:id", see);
+userRouter.get("/:id", see);
 export default userRouter;

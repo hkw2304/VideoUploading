@@ -3,7 +3,7 @@
 mixin video(videos)
     div
         h4
-            a(href=`/videos/${videos.id}`) #{videos.title} 
+            a(href=`/videos/${videos._id}`) #{videos.title} 
         p=videos.description
         ul
             each hashtags in videos.hashtags
