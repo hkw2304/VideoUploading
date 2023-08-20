@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  //   watch : 꺼지지않는다 재시작할 필요없이 바로 업데이트
+  //   watch : 꺼지지않는다 재시작할 필요없이 바로 업데이트, 백엔드의 nodemon
   watch: true,
   plugins: [
     new MiniCssExtractPlugin({
