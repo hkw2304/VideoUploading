@@ -217,6 +217,33 @@
                 video 업로드는 사진이랑 비슷
                 video와 user를 서로 연결해준다
                 populate : 해당 요소의 객체에 대한 모든 정보를 얻을 수 있다.
+
+
+            08-20
+
+                지금까지 한것들은 저분 백엔드에서 돌아가는 코드
+                이제부터는 프론트엔드에서 돌아가게 하는 코드를 작성
+                webpack : babel과 비슷 babel이 백엔드 부분, webpack은 프로트엔드 부분
+                          최신 ====> 옛날
+                          실제로는 직접 사용하지는 않지만 이미 설치된 툴을 사용한다.
+                          배우는 과정이니까 직접 해보는것
+
+                1. webpack webpack-cli -D
+                2. webpack.config.js 폴더생성
+                3. package의 script추가
+                   "assets": "webpack -config webpack.config.js"
+                
+                rules : 파일의 종류에 따라 변환하는 방법
+
+                SCSS : 또다른 CSS??
+
+                SCSS loader설치
+                sass-loader sass webpack --save-dev
+                --save-dev css-loader
+                --save-dev style-loader
+
+                편의성을 위한 패키지 설치
+
                 
 
 

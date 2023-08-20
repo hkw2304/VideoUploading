@@ -38,3 +38,7 @@ npm run "실행명"
 
 6.morgan 설치
     morgan : middleware에 사용되는 중간중간에 처리되어지는 행위를 기록
+
+
+
+webpack설치하면서 script부분 수정함 : "dev": "nodemon --exec babel-node src/init.js", -> "dev": "nodemon"

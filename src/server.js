@@ -24,8 +24,9 @@ app.use(
   })
 );
 app.use(localsMiddleware);
-// 이미지 경로 인식을 위한 전역 설정
+// 경로 인식을 위한 전역 설정
 app.use("/uploads", express.static("uploads"));
+app.use("/assets", express.static("assets"));
 app.use(morganMiddle);
 app.use(express.urlencoded({ extended: true }));
 app.use("/", rootRouter);
