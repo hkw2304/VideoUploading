@@ -1,0 +1,8 @@
+.change-form {
+  //   color: black;
+  input {
+    &::placeholder {
+      color: black;
+    }
+  }
+}

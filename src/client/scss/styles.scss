@@ -1,5 +1,34 @@
-@import "./_variables";
+@import "./config/_variables.scss";
+@import "./config/_reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:ital,wght@1,300&display=swap");
+// components
+@import "./components/header.scss";
+@import "./components/video.scss";
+@import "./components/social-login.scss";
+@import "./components/shared.scss";
+@import "./components/forms.scss";
+@import "./components/footer.scss";
+// screens
+@import "./screens/edit-profile.scss";
+@import "./screens/profile.scss";
+@import "./screens/search.scss";
+@import "./screens/change-form.scss";
+// a:hover
+a {
+  color: inherit;
+  text-decoration: none;
+  // &:hover {
+  // }
+}
+
 body {
-  background-color: $red;
-  color: $color;
+  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
+  background-color: $bg;
+}
+main {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
 }

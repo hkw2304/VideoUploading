@@ -1,0 +1,31 @@
+.header__logo {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a .fa-youtube {
+    color: red;
+    font-size: 38px;
+  }
+  ul {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ul li {
+    margin-left: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  i {
+    font-size: 16px;
+  }
+}
+.header__btn {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}

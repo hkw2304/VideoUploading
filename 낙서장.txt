@@ -244,6 +244,12 @@
 
                 편의성을 위한 패키지 설치
 
+
+                08-21
+                    css작업
+                    기존의 css 파일 지우고
+                    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+
                 
 
 
