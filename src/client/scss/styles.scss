@@ -13,6 +13,7 @@
 @import "./screens/profile.scss";
 @import "./screens/search.scss";
 @import "./screens/change-form.scss";
+@import "./screens/watch.scss";
 // a:hover
 a {
   color: inherit;
@@ -31,4 +32,8 @@ main {
   width: 100%;
   margin: 0 auto;
   margin-top: 50px;
+}
+video {
+  width: 800px;
+  height: 500px;
 }

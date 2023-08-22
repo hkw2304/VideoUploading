@@ -9,6 +9,7 @@ html(lang="ko")
         header.header__logo
             a(href="/")
                 i.fab.fa-youtube
+                span Youtube
             nav 
                 ul 
                     li 
@@ -18,11 +19,15 @@ html(lang="ko")
                         li 
                             a(href="/videos/upload") Upload Video
                         li 
-                            a(href=`/users/${loggedInUser._id}`) My Profile
-                        li 
-                            a(href="/users/edit") Edit Profile
+                            a(href="/users/edit") Edit Profile0
                         li
                             a(href="/users/logout") logout
+                        li 
+                            a(href=`/users/${loggedInUser._id}`)
+                                if loggedInUser.avatarUrl === ""
+                                    span 😊
+                                else
+                                    img(src="/" + loggedInUser.avatarUrl).header__avatar
                     else
                         li 
                             a(href="/join") join
@@ -30,7 +35,8 @@ html(lang="ko")
                             a(href="/login").header__btn login
         main
             block content
-    include partials/footer
+        include partials/footer
+    block scripts
     //- webpack을 가져와준다.
-    script(src="/assets/js/main.js")
+    //- script(src="/assets/js/main.js")
     <script src="https://kit.fontawesome.com/86bc6866a5.js" crossorigin="anonymous"></script>

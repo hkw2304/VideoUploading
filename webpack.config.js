@@ -12,10 +12,15 @@ module.exports = {
     }),
   ],
   // 어디서 파일을 가져올거냐
-  entry: "./src/client/js/main.js",
+  entry: {
+    main: "./src/client/js/main.js",
+    videoPlayer: "./src/client/js/videoPlayer.js",
+  },
   output: {
     // 실행할 파일명
-    filename: "js/main.js",
+    // [name]을 해주면 각각 가져다가 따로 실행한다
+    // 안해주면 다른 두개가 하나의 파일로 실행
+    filename: "js/[name].js",
     // 최적화 후 저장할 경로
     path: path.resolve(__dirname, "assets"),
     clean: true,
