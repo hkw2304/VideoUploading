@@ -43,3 +43,5 @@ npm run "실행명"
 
 webpack설치하면서 script부분 수정함 : "dev": "nodemon --exec babel-node src/init.js", -> "dev": "nodemon"
 webpack --config webpack.config.js
+
+api : 백엔드와 프론트엔드의 대화방법

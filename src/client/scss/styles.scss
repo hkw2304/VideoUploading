@@ -33,7 +33,7 @@ main {
   margin: 0 auto;
   margin-top: 50px;
 }
-video {
-  width: 800px;
-  height: 500px;
+video:not(#preview) {
+  width: 120%;
+  height: 40%;
 }

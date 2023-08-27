@@ -1,3 +1,4 @@
+@import "../config/_variables.scss";
 form {
   margin-bottom: 60px;
   display: flex;
@@ -7,23 +8,15 @@ form {
   max-width: 420px;
   margin: 0 auto;
 }
-input[type="submit"] {
-  width: 150px;
-  margin-top: 50px;
-  text-align: center;
-  font-weight: bold;
-  color: $red;
-}
-input:not(input[type="range"]) {
+input:not(input[type="range"], input[type="submit"]) {
   &:not(.search__form) {
-    margin-bottom: 10px;
     box-shadow: 2px 2px 15px 2px black;
+    margin: 12px;
   }
   all: unset;
   padding: 15px 20px;
   border-radius: 5px;
   border: none;
-  margin-bottom: 5px;
   font-size: 20px;
   color: black;
   box-shadow: 7px 5px 20px 5px black;
@@ -32,8 +25,23 @@ input:not(input[type="range"]) {
     color: rgba(45, 39, 39, 0.5);
   }
 }
+
 .login-form {
   input[type="password"] {
-    margin-top: 18px;
+    margin: 20px;
   }
+}
+input[type="submit"] {
+  width: 200px;
+  margin-top: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: $red;
+  border: none;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  background-color: rgb(204, 207, 207);
+  text-align: center;
 }

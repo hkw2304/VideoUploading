@@ -26,7 +26,7 @@
 =============================================================
 fetch : JavaScript에서 서버로 네트워크 request를 보내고 response를 받을수 있게 해주는 매서드
         기본값 : GET
-fetch().then() : fetch로 서보로 request를 보내고 response를 받으면 then()을 실행해줘.
+fetch().then() : fetch로 서버로 request를 보내고 response를 받으면 then()을 실행해줘.
 
 
 =====>>>> fetch로 api와 연결하고 백엔드로부터 정보를 받으면 받은 정보로 then()을 실행해라

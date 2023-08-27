@@ -1,10 +1,17 @@
 const video = document.querySelector("video");
-const playBtn = document.querySelector("#play");
-const muteBtn = document.querySelector("#mute");
-const volumeRange = document.querySelector("#volume");
-const currentTime = document.querySelector("#currentTime");
-const totalTime = document.querySelector("#totalTime");
+const videoWrap = document.querySelector(".video-wrap");
+// const playBtn = document.querySelector("#play");
+// const muteBtn = document.querySelector("#mute");
+// const volumeRange = document.querySelector("#volume");
+// const currentTime = document.querySelector("#currentTime");
+// const totalTime = document.querySelector("#totalTime");
+// const timeLine = document.querySelector("#timeLine");
+// const fullScreenBtn = document.querySelector("#fullScreen");
+// const videoContainer = document.querySelector("#videoContainer");
+// const videoControls = document.querySelector("#videoControls");
 
+let controlsMovementTimeout = null;
+let controlsTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 // 버튼을 만들어서 이쁘게 꾸미는 중
@@ -49,23 +56,79 @@ const handleVolumeChange = (event) => {
   volumeValue = value;
   video.volume = value;
 };
-
+const formatTime = (seconds) => {
+  return new Date(seconds * 1000).toISOString().substring(11, 19);
+};
 const handleLoadedMetadata = () => {
-  totalTime.innerHTML = Math.floor(video.duration);
+  totalTime.innerHTML = formatTime(Math.floor(video.duration));
+  timeLine.max = Math.floor(video.duration);
 };
 
 const handleTimeUpdate = () => {
-  currentTime.innerHTML = Math.floor(video.currentTime);
+  currentTime.innerHTML = formatTime(Math.floor(video.currentTime));
+  timeLine.value = Math.floor(video.currentTime);
+};
+const handleTimeLineChange = (event) => {
+  const {
+    target: { value },
+  } = event;
+  video.currentTime = value;
 };
 
-playBtn.addEventListener("click", handlePlayClick);
-muteBtn.addEventListener("click", handleMute);
+const handleFullScreen = () => {
+  const fullscreen = document.fullscreenElement;
+  if (fullscreen) {
+    fullScreenBtn.innerHTML = "Enter Full Screen";
+    document.exitFullscreen();
+  } else {
+    videoContainer.requestFullscreen();
+    fullScreenBtn.innerHTML = "Exit Full Screen";
+  }
+};
+const hideControls = () => {
+  videoControls.classList.remove("showing");
+};
+
+const handleMouseMove = () => {
+  if (controlsTimeout) {
+    clearTimeout(controlsTimeout);
+    controlsTimeout = null;
+  }
+
+  if (controlsMovementTimeout) {
+    clearTimeout(controlsMovementTimeout);
+    controlsMovementTimeout = null;
+  }
+  videoControls.classList.add("showing");
+  controlsMovementTimeout = setTimeout(hideControls, 3000);
+};
+const handleMouseLeave = () => {
+  // 딜레이를 줘서 제거
+  // setTimeout은 반환값이 있다.
+  // 마우스가 현재의 자리에서 떠나면 계속해서 반환값이 나온다.
+  controlsTimeout = setTimeout(hideControls, 3000);
+};
+
+const handleEnded = () => {
+  const { id } = videoWrap.dataset;
+  fetch(`/api/video/${id}/view`, {
+    method: "POST",
+  });
+};
+// playBtn.addEventListener("click", handlePlayClick);
+// muteBtn.addEventListener("click", handleMute);
 // input : 실시간 작동
-volumeRange.addEventListener("input", handleVolumeChange);
+// volumeRange.addEventListener("input", handleVolumeChange);
 // video.addEventListener("pause", handlePause);
 // video.addEventListener("play", handlePlay);
 
 // 이미지나비디오가 로드되면 발생하는 이벤트
-video.addEventListener("loadedmetadata", handleLoadedMetadata);
+// video.addEventListener("loadedmetadata", handleLoadedMetadata);
 // 비디오가 실행되면 발생하는 이벤트
-video.addEventListener("timeupdate", handleTimeUpdate);
+// video.addEventListener("timeupdate", handleTimeUpdate);
+// timeLine.addEventListener("input", handleTimeLineChange);
+// fullScreenBtn.addEventListener("click", handleFullScreen);
+// video.addEventListener("mousemove", handleMouseMove);
+// video.addEventListener("mouseleave", handleMouseLeave);
+// 비디오가 끝날을때의 이벤트
+video.addEventListener("ended", handleEnded);

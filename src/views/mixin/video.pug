@@ -2,7 +2,7 @@
 //- pug문법인 텍스트랑 변수를 같이 사용하는 것(#{})은 attribute에는 사용 불가능
 mixin video(videos)
     a(href=`/videos/${videos.id}`).video-mixin
-        div.video-mixin__thumb
+        div.video-mixin__thumb(style=`background-image:url(${videos.thumbUrl})`)
         div.video-mixin__data
             span.video-mixin__title=videos.title
             div.video-mixin__meta
