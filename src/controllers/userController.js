@@ -137,6 +137,7 @@ export const finishGithubLogin = async (req, res) => {
 
 export const logout = (req, res) => {
   req.session.destroy();
+  // req.flash("info", "Bye Bye");
   return res.redirect("/");
 };
 export const see = async (req, res) => {
@@ -148,9 +149,11 @@ export const see = async (req, res) => {
       model: "User",
     },
   });
+  console.log(user);
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found" });
   }
+  console.log(user);
   return res.render("users/profile", {
     pageTitle: `${user.name}'s Profile`,
     user,
@@ -185,6 +188,7 @@ export const postEdit = async (req, res) => {
 };
 export const getChangePassword = (req, res) => {
   if (req.session.user.socialOnly === true) {
+    req.flash("error", "Can't change password...");
     return res.redirect("/");
   }
   return res.render("users/change-password", { pageTitle: "Change Password" });
@@ -212,6 +216,7 @@ export const postChangePassword = async (req, res) => {
 
   const user = await User.findById(_id);
   user.password = newPassword;
+  req.flash("info", "Pass update!!");
   await user.save();
   req.session.user.passowrd = user.password;
   return res.redirect("/users/logout");

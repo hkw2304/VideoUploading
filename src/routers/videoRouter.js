@@ -13,8 +13,8 @@ const videoRouter = express.Router();
 // multer는 반드시 업로드 하기전에 실행
 videoRouter
   .route("/upload")
-  .get(getUpload)
   .all(protectedMiddleware)
+  .get(getUpload)
   .post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postUpload);
 videoRouter.get("/:id([0-9a-f]{24})", watch);
 videoRouter

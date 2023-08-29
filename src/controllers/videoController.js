@@ -1,5 +1,6 @@
 import User from "../models/User";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 export const home = async (req, res) => {
   const videos = await Video.find({})
@@ -30,6 +31,7 @@ export const getEdit = async (req, res) => {
   }
 
   if (String(videos.owner) !== String(_id)) {
+    req.flash("error", "Your are not the owner of the video");
     return res.status(403).redirect("/");
   }
   return res.render("edit", {
@@ -55,6 +57,7 @@ export const postEdit = async (req, res) => {
     description,
     hashtags: Video.formatHashtags(hashtags),
   });
+  req.flash("success", "ok!!");
   return res.redirect(`/videos/${id}`);
 };
 export const search = async (req, res) => {
@@ -127,4 +130,24 @@ export const registerView = async (req, res) => {
   return res.sendStatus(200);
   // status : render 후에 상태 코드를 정함
   // sendStatus : 상태를 보고 연결을 끊음
+};
+export const createComment = async (req, res) => {
+  // const { id } = req.params;
+  // const { text } = req.body;
+  // const { session } = req.session.user;
+  const {
+    session: { user },
+    body: { text },
+    params: { id },
+  } = req;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.sendstatus(404);
+  }
+  const comment = await Comment.create({
+    text,
+    owner: user._id,
+    video: id,
+  });
+  return res.sendStatus(201);
 };

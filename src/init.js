@@ -5,6 +5,7 @@ import "dotenv/config";
 import "./db";
 import "./models/Video";
 import "./models/User";
+import "./models/Comment";
 // import db from "./db";
 // import Video from "./models/Video";
 import app from "./server";

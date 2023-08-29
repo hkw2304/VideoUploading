@@ -27,7 +27,15 @@ block content
                 a(href=`${videos.id}/edit`) Edit Video &rarr;
                 br
                 a(href=`${videos.id}/delete`) Delete Video &rarr;
+        if loggedIn
+            div.video__comments
+                form.video__comments-form#commentForm
+                    textarea(cols="30", rows="10", placeholder="Please Your Comments....")
+                    button Add Comment 
+
 block scripts 
-    script(src="/static/js/videoPlayer.js")    
+    script(src="/static/js/videoPlayer.js")
+    if loggedIn
+        script(src="/static/js/commentSection.js")
     
     

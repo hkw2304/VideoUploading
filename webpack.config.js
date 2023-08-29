@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // webpack은 절대경로를 필요시 해서 경로 설정을 해준다.
 const path = require("path");
-
+const BASE_JS = "./src/client/js/";
 module.exports = {
   mode: "development",
   //   watch : 꺼지지않는다 재시작할 필요없이 바로 업데이트, 백엔드의 nodemon
@@ -11,11 +11,12 @@ module.exports = {
       filename: "css/styles.css",
     }),
   ],
-  // 어디서 파일을 가져올거냐
+  // client/js의 파일들을 인식하기위함
   entry: {
-    main: "./src/client/js/main.js",
-    videoPlayer: "./src/client/js/videoPlayer.js",
-    recorder: "./src/client/js/recorder.js",
+    main: BASE_JS + "main.js",
+    videoPlayer: BASE_JS + "videoPlayer.js",
+    recorder: BASE_JS + "recorder.js",
+    commentSection: BASE_JS + "commentSection.js",
   },
   output: {
     // 실행할 파일명

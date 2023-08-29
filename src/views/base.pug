@@ -6,6 +6,12 @@ html(lang="ko")
         link(red="stylesheet", hreft="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
         link(rel="stylesheet", href="/static/css/styles.css")
     body
+        //- if messages.error 
+        //-     span=messages.error
+        //- if messages.info 
+        //-     span=messages.info
+        //- if messages.success
+        //-     span=messages.success
         header.header__logo
             a(href="/")
                 i.fab.fa-youtube
@@ -23,11 +29,8 @@ html(lang="ko")
                         li
                             a(href="/users/logout") logout
                         li 
-                            a(href=`/users/${loggedInUser._id}`)
-                                if loggedInUser.avatarUrl === ""
-                                    span 😊
-                                else
-                                    img(src="/" + loggedInUser.avatarUrl).header__avatar
+                            a(href=`/users/${loggedInUser._id}`) 
+                                img(src="/" + loggedInUser.avatarUrl).header__avatar
                     else
                         li 
                             a(href="/join") join
