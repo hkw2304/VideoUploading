@@ -30,13 +30,7 @@ html(lang="ko")
                             a(href="/users/logout") logout
                         li 
                             a(href=`/users/${loggedInUser._id}`)
-                                if loggedInUser.avatarUrl === ""
-                                    span 😁
-                                else 
-                                    if loggedInUser.socialOnly 
-                                        img(src=loggedInUser.avatarUrl).header__avatar
-                                    else 
-                                        img(src="/" + loggedInUser.avatarUrl).header__avatar
+                                img(src="/" + loggedInUser.avatarUrl).header__avatar
                     else
                         li 
                             a(href="/join") join
