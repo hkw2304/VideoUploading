@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 // on : 클릭같은 이벤트로 여러번 발생 가능
 // once : 오로지 한번만 동작
 const db = mongoose.connection;
-await mongoose.connect(process.env.DB_URL);
+mongoose.connect(process.env.DB_URL);
 const handleOpen = () => {
   console.log("Conected to DB");
 };
