@@ -6,11 +6,15 @@ export const home = async (req, res) => {
   const videos = await Video.find({})
     .sort({ createdAt: "asc" })
     .populate("owner");
+
+  console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const videos = await Video.findById(id).populate("owner");
+  const videos = await Video.findById(id)
+    .populate("owner")
+    .populate("comments");
   console.log(videos);
   if (videos) {
     return res.render("watch", {
@@ -141,6 +145,7 @@ export const createComment = async (req, res) => {
     params: { id },
   } = req;
   const video = await Video.findById(id);
+  console.log("info!!!!", video);
   if (!video) {
     return res.sendstatus(404);
   }
@@ -149,5 +154,10 @@ export const createComment = async (req, res) => {
     owner: user._id,
     video: id,
   });
+  console.log("!!!!!!!!!!!!!!comment : ", comment);
+  video.comments.push(comment._id);
+  console.log("info(idAdd)", video);
+  // console.log(video);
+  video.save();
   return res.sendStatus(201);
 };

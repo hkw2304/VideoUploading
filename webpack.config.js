@@ -3,9 +3,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const BASE_JS = "./src/client/js/";
 module.exports = {
-  mode: "development",
+  // mode: "development",
   //   watch : 꺼지지않는다 재시작할 필요없이 바로 업데이트, 백엔드의 nodemon
-  watch: true,
+  // watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",

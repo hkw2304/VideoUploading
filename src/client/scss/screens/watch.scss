@@ -10,3 +10,17 @@
     font-weight: bold;
   }
 }
+.video__comment {
+  background-color: rgba(223, 219, 219, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.video__comments {
+  width: 500px;
+  height: 350px;
+  overflow-y: scroll;
+}
+.video__comments::-webkit-scrollbar {
+  display: none;
+}

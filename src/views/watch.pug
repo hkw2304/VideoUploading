@@ -21,6 +21,7 @@ block content
         div.video-info
             p=`video's description : ${videos.description}`
             p=`video's createdAt : ${videos.createdAt}`
+            p=`${videos.hashtags}`
             p Uploaded by 
                 a(href=`/users/${videos.owner._id}`)= videos.owner.name
             if String(videos.owner._id) === String(loggedInUser._id)
@@ -28,10 +29,16 @@ block content
                 br
                 a(href=`${videos.id}/delete`) Delete Video &rarr;
         if loggedIn
-            div.video__comments
+            div.video__add-comments
                 form.video__comments-form#commentForm
                     textarea(cols="30", rows="10", placeholder="Please Your Comments....")
                     button Add Comment 
+        div.video__comments
+            ul 
+                each comment in videos.comments.reverse()
+                    li.video__comment
+                        i.fas.fa-comment 
+                        span  #{comment.text}
 
 block scripts 
     script(src="/static/js/videoPlayer.js")
