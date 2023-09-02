@@ -10,7 +10,9 @@ import "./models/Comment";
 // import Video from "./models/Video";
 import app from "./server";
 
-const PORT = 4000;
+// 에러나면 일단 이걸로 그냐 실행
+// const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const handleListening = () => {
   console.log(`Server listening on port http://localhost:${PORT}`);
