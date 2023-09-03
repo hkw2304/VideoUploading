@@ -278,6 +278,10 @@
                     아마존서버에 올릴 준비
                     heroku log : 기록보기
                     파일수정시 git add . => git commit -m "설명" => git push heroku main
+                    17-6 4:30부터 보기
+                09-03
+                    github으로 연동하기
+                    github로 연동시 git push origin main 명령어 자동 배포됨
                 
                 
 

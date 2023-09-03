@@ -28,9 +28,12 @@ html(lang="ko")
                             a(href="/users/edit") Edit Profile0
                         li
                             a(href="/users/logout") logout
-                        li 
-                            a(href=`/users/${loggedInUser._id}`)
-                                img(src="/" + loggedInUser.avatarUrl).header__avatar
+                        li
+                            if loggedInUser.avatarUrl.includes("github")
+                                a(href=`/users/${loggedInUser._id}`)
+                                    img(src="/" + loggedInUser.avatarUrl).header__avatar
+                            else 
+                                span noImg
                     else
                         li 
                             a(href="/join") join
