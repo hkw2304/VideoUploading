@@ -29,12 +29,8 @@ html(lang="ko")
                         li
                             a(href="/users/logout") logout
                         li
-                            if loggedInUser.avatarUrl.includes("github")
-                                a(href=`/users/${loggedInUser._id}`)
-                                    img(src="/" + loggedInUser.avatarUrl).header__avatar
-                            else 
-                                a(href=`/users/${loggedInUser._id}`)
-                                    img(src="/" + loggedInUser.avatarUrl, alt="noImg").header__avatar
+                            a(href=`/users/${loggedInUser._id}`)
+                                img(src="/" + loggedInUser.avatarUrl, alt="img").header__avatar
                     else
                         li 
                             a(href="/join") join
