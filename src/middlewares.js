@@ -8,7 +8,6 @@ const s3 = new aws.S3({
     secretAccessKey: process.env.AWS_SECRET,
   },
 });
-const isHeroku = process.env.NODE_ENV === "production";
 const s3ImageUploader = multerS3({
   s3: s3,
   bucket: "youtubeload/images",
@@ -64,12 +63,12 @@ export const avatarUpload = multer({
   limits: {
     fileSize: 3000000,
   },
-  storage: isHeroku ? s3ImageUploader : undefined,
+  storage: s3ImageUploader,
 });
 export const videoUpload = multer({
   dest: "uploads/videos",
   limits: {
     fileSize: 100000000,
   },
-  storage: isHeroku ? s3VideoUploader : undefined,
+  storage: s3VideoUploader,
 });
