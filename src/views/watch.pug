@@ -2,7 +2,7 @@ extends base.pug
 
 block content
     div.video-wrap(data-Id = videos._id)
-        video(src="/" + videos.fileUrl, controls)
+        video(src=videos.fileUrl, controls)
         //- div#videoContainer.videoControls
         //-     div#videoControls 
         //-         button#play Play 

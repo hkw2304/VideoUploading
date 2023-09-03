@@ -30,7 +30,7 @@ html(lang="ko")
                             a(href="/users/logout") logout
                         li
                             a(href=`/users/${loggedInUser._id}`)
-                                img(src="/" + loggedInUser.avatarUrl, alt="img").header__avatar
+                                img(src=loggedInUser.avatarUrl, alt="img").header__avatar
                     else
                         li 
                             a(href="/join") join

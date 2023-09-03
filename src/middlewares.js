@@ -11,6 +11,11 @@ const s3 = new aws.S3({
 const multerUploader = multerS3({
   s3: s3,
   bucket: "youtubeload",
+  Condition: {
+    StringEquals: {
+      "s3:x-amz-acl": ["public-read"],
+    },
+  },
 });
 export const localsMiddleware = (req, res, next) => {
   // 세션내용을 locals에 넘겨준다.
