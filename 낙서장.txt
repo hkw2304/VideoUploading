@@ -284,6 +284,9 @@
                     github로 연동시 git push origin main 명령어 자동 배포됨
                     하지만 heroku에 push(업데이트)를 하게 될 때마다 서버를 다시 생성을해서 기존 자료들이 사라진다
                     파일을 저장하기 위해 aws를 이용
+                    요약
+                    변경시
+                    git add . => git commit -m "변경내용" => git push origin main
                 
                 
 
