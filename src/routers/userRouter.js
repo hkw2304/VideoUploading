@@ -15,7 +15,6 @@ import {
   avatarUpload,
 } from "../middlewares";
 const userRouter = express.Router();
-
 userRouter
   .route("/edit")
   .all(protectedMiddleware)
