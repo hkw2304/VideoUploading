@@ -1,6 +1,6 @@
 @import "./config/_variables.scss";
 @import "./config/_reset.scss";
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
 // components
 @import "./components/header.scss";
 @import "./components/video.scss";
@@ -23,8 +23,7 @@ a {
 }
 
 body {
-  font-family: "Playfair Display", serif;
-  font-family: "Roboto", sans-serif;
+  font-family: "Dongle", sans-serif;
   background-color: $bg;
 }
 main {
