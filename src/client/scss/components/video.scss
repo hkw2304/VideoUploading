@@ -25,4 +25,8 @@
       font-weight: bold;
     }
   }
+  transition: all 0.5s ease-in-out;
+}
+.video-mixin:hover {
+  transform: scale(2);
 }
