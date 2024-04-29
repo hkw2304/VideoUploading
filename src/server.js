@@ -29,12 +29,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   session({
-    secret: process.env.COOKIE_SECRET,
-    resave: false,
+    secret: process.env.COOKIE_SECRET, //세션 암호하
+    resave: false,                     //세션을 항상 저장할지 결정
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl: process.env.DB_URL,
-    }),
+    }), //데이터를 저장하는 형식
   })
 );
 
