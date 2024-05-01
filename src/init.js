@@ -6,6 +6,9 @@ import "./db";
 import "./models/Video";
 import "./models/User";
 import "./models/Comment";
+
+
+// 테스트
 // import db from "./db";
 // import Video from "./models/Video";
 import app from "./server";
