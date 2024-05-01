@@ -8,6 +8,9 @@ const s3 = new aws.S3({
     secretAccessKey: process.env.AWS_SECRET,
   },
 });
+
+const isHeroku = process.env.NODE_ENV === "production";
+
 const s3ImageUploader = multerS3({
   s3: s3,
   bucket: "siteuploading/images",
@@ -33,6 +36,7 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "Youtube!!";
   // || {} : 혹시모를 에러를 대비해 user의 정보가 없으면 그냥 널객체를 넘겨준다.
   res.locals.loggedInUser = req.session.user || {};
+  res.locals.isHeroku = isHeroku;
   next();
   //   next() 해줘야 다음 미들웨어가 실행된다.
 };
@@ -63,12 +67,12 @@ export const avatarUpload = multer({
   limits: {
     fileSize: 3000000,
   },
-  storage: s3ImageUploader,
+  storage: isHeroku ? s3ImageUploader : undefined,
 });
 export const videoUpload = multer({
   dest: "uploads/videos",
   limits: {
     fileSize: 100000000,
   },
-  storage: s3VideoUploader,
+  storage: isHeroku ? s3VideoUploader : undefined,
 });
