@@ -9,8 +9,7 @@
 
 # CRUD 매트릭스
 
-![crud매트릭스 수정본](https://github.com/hkw2304/VideoUploading/assets/111471255/c7606aa8-91ef-4c49-a8e2-d327ec0a6f1a)
+![crud매트릭스 수정본3](https://github.com/hkw2304/VideoUploading/assets/111471255/1c8befcb-e1bf-404f-b4bb-a5b976e8e5bf)
 
 
 
-ㅁㅇㄴㅁㄴㅇㄴ
