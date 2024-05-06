@@ -13,10 +13,23 @@
 
 동적 웹 페이지의 여러 렌더링 방법중에서 SSR(Server Side Rendering) 방식을 채용
 <br>
-SSR : 클라이언트에서 모든 것으 처리하지 않고, 
-
-
+SSR : 클라이언트에서 모든 것을 처리하지않고, 서버측에서 보여질 HTML을 미리 준비해(템플릿 엔진에의해) 클라이언트에 응답해주는 방식
+<br>
 ![SSR](https://github.com/hkw2304/VideoUploading/assets/111471255/65e33e74-c13e-4cb0-8fc1-b661201b7b9f)
+
+<hr>
+
+<h1>시연 영상</h1>
+<b>회원가입 / 로그인(Github연동)</b>
+<br><br>
+
+![faster](https://github.com/hkw2304/VideoUploading/assets/111471255/814ec551-ce40-4097-a079-2e70bd85e793)
+
+![gitLogin](https://github.com/hkw2304/VideoUploading/assets/111471255/79869b06-4ce0-4bf5-ae51-8f45ddce836e)
+
+
+
+
 
 
 
