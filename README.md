@@ -11,7 +11,7 @@
 
 <br><br>
 
-동적 웹 페이지의 여러 렌더링 방법중에서 SSR(Server Side Rendering) 방식을 채용
+동적 웹 페이지의 여러 렌더링 방법중에서 <b>SSR(Server Side Rendering)</b> 방식을 채용
 <br>
 SSR : 클라이언트에서 모든 것을 처리하지않고, 서버 측에서 보여질 HTML을 미리 준비해(템플릿 엔진에의해) 클라이언트에 응답해주는 방식
 <br>
