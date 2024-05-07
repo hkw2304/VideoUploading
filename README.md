@@ -28,7 +28,7 @@ SSR : 클라이언트에서 모든 것을 처리하지않고, 서버 측에서 �
 ![gitLogin](https://github.com/hkw2304/VideoUploading/assets/111471255/79869b06-4ce0-4bf5-ae51-8f45ddce836e)
 
 <br><br>
-<b>영상 업로드</b>
+<b>영상 업로드(내장 카메라 가능)</b>
 <br>
 
 ![videouploading](https://github.com/hkw2304/VideoUploading/assets/111471255/f899ce51-1efa-425d-91be-780902a1add2)
