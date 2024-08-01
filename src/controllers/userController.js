@@ -1,7 +1,5 @@
 import User from "../models/User";
-import Video from "../models/Video";
 import bcrypt from "bcrypt";
-import fetch from "node-fetch";
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
@@ -172,7 +170,7 @@ export const postEdit = async (req, res) => {
     body: { name, email, username, location },
     file,
   } = req;
-  // console.log("========", file);
+  console.log("========", file);
   const isHeroku = process.env.NODE_ENV === "production";
   const updateUser = await User.findByIdAndUpdate(
     _id,

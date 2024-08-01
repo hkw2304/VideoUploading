@@ -20,25 +20,28 @@ const downloadFile = (fileUrl, fileName) => {
 };
 
 const handleDownload = async () => {
-  // console.log(createFFmpeg);
+  ///////////////////////////////////////////////////////
+  console.log(createFFmpeg);
 
-  // const ffmpeg = await createFFmpeg({
-  //   log: true,
-  // });
-  // await ffmpeg.load();
-  // ffmpeg.FS("writeFile", "recording.webm", await fetchFile(videoFile));
-  // await ffmpeg.run("-i", "recording.webm", "-r", "60", "output.mp4");
+  const ffmpeg = await createFFmpeg({
+    log: true,
+  });
+  await ffmpeg.load();
+  ffmpeg.FS("writeFile", "recording.webm", await fetchFile(videoFile));
+  await ffmpeg.run("-i", "recording.webm", "-r", "60", "output.mp4");
+  ///////////////////////////////////////////////////////
 
-  let canvas = document.createElement("canvas");
-  let canvasContext = canvas.getContext("2d");
-  canvas.width = 250;
-  canvas.height = 140;
-  canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
-  let dataURI = canvas.toDataURL("image/jpeg");
+  // let canvas = document.createElement("canvas");
+  // let canvasContext = canvas.getContext("2d");
+  // canvas.width = 250;
+  // canvas.height = 140;
+  // canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
+  // let dataURI = canvas.toDataURL("image/jpeg");
 
-  downloadFile(dataURI, files.thumb);
-  downloadFile(videoFile, files.input);
+  // downloadFile(dataURI, files.thumb);
+  // downloadFile(videoFile, files.input);
 
+  ///////////////////////////////////////////////////////
   // const thumb = document.createElement("a");
   // thumb.href = dataURI;
   // thumb.download = files.thumb;
@@ -49,6 +52,7 @@ const handleDownload = async () => {
   // a.download = files.input;
   // document.body.appendChild(a);
   // a.click();
+  ////////////////////////////////////////////////////
   init();
   startBtn.innerHTML = "Start Recording";
   startBtn.removeEventListener("click", handleDownload);
